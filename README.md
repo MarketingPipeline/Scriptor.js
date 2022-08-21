@@ -8,6 +8,32 @@ It includes options for creating text editor buttons with ease, wrapping selecte
 
 > Note: You WILL find bugs! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. 
 
+
+
+## Getting Started 
+
+
+Create a textarea or another HTML element that can hold a <code>value</code> with the id <code>text-editor</code>
+
+Add some buttons like so to add functionalinatiy to your text editor 
+
+
+```html
+  <button class="test" id="btn" value="@" wrap="true"  htmltags="false" type="button">GitHub Mention</button>
+   <button class="test" id="btn" value="&#x3C;img src=&#x22;test&#x22;&#x3E;" insert="true"  type="button" htmltags="false">Insert Image Of A Dog</button>
+
+<button class="test" id="btn" value="blockquote" wrap="True" type="button">Blockquote</button>
+```
+
+
+Include the script in your HTML document & you're done, you've created a basic custom text editor! 
+
+
+
+
+### Options
+
+
 <b>To wrap text with a HTML element etc..</b>
 
 
