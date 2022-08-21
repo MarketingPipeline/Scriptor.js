@@ -1,3 +1,17 @@
+/// TODO's  //////////  -
+
+// carrot position 
+
+////// set caret position inside wrapped element - example <element>CARET HERE</element> 
+
+////// set after for inserted elements  - example 
+// @Octocat CARET HERE
+
+/// Ignore Attribute Values In Spellcheck API / Textarea
+
+////// END OF TO DO //////////
+
+
 
 // ID for text editor 
 let form = document.getElementById('textarea');
@@ -56,6 +70,7 @@ function getSelectionText() {
 
 // Wrap Highlighted Text On Button Click
 function wrapText(text, wrap, html_tags=true){
+  
   const string = text.trim();
 const substring = wrap;
 console.log(substring)
@@ -118,9 +133,11 @@ for (var i = 0; i < elements.length; i++) {
          form.value = form.value +  e.target.getAttribute("value")
               
           } else { 
-          
-                 form.value = form.value +  wrapText("", e.target.getAttribute("value"), true) 
-          
+  
+             /// insert at last carrot
+          form.value = form.value.substring(0, currentTextPosition) +   wrapText("", e.target.getAttribute("value"), true)  + form.value.substring(currentTextPosition, form.value.length);
+
+            
           }
             
         }
@@ -140,7 +157,8 @@ for (var i = 0; i < elements.length; i++) {
 
                             // Wrapping with html tags <>
                 form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value")));  }
-                     
+           
+         
                      
             } else{
                                
@@ -151,10 +169,13 @@ for (var i = 0; i < elements.length; i++) {
   form.value = form.value.replace(e.target.getAttribute("value"), "");
 
 
+ 
 
 }  else {
               // Add to the start of the value
-               form.value = form.value.replace(getSelectionText(), e.target.getAttribute("value") + getSelectionText());  
+               form.value = form.value.replace(getSelectionText(), e.target.getAttribute("value") + getSelectionText()); 
+   
+  
          }
     }
               
