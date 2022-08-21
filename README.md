@@ -2,9 +2,9 @@
 A Javascript Library for building custom text editors with ease
 
 
-This is a boilerplate / barebone text editor JS library, meant to be a starting for point for developers to use & customize to their needs. 
+This is a barebone text editor JS library, meant to create your OWN text editor & customize it to your own needs. 
 
-It includes options for creating text editor buttons with ease, wrapping selected text, inserting text at last typed or clicked position & more... 
+It includes options for creating text editor buttons / values with ease, wrapping selected text, inserting text at last typed or clicked position & more... 
 
 > Note: You WILL find bugs! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. 
 
