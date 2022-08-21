@@ -9,12 +9,17 @@
 
 /// Ignore Attribute Values In Spellcheck API / Textarea
 
+
+// fix replacement of last match of wrapped element on highlighted text selection
+
+// add styling options 'text-style' < attribute. 
+
+
 ////// END OF TO DO //////////
 
 
 
 // ID for text editor 
-
 
 let form = document.getElementById('textarea');
  
@@ -78,30 +83,59 @@ const substring = wrap;
 console.log(substring)
   // if Highlighted Text String Already Contains A Wrap At Start & End - Remove It
 if (string.startsWith(`<${substring}>`) == true ){ 
+  console.log(wrap)
+  if (string.length >= substring.length ){
   // replace first HTML tag
   text = text.replace(`<${wrap}>`, '');
   // replace the last tag
   var matches = text.match(`</${wrap}>`);
-var lastMatch = matches[matches.length-1];
+if (matches !=null){
+  var lastMatch = matches[matches.length-1];
   text = text.replace(`${lastMatch}`, '')
+}
   var Wrapped = `${text}` 
-
+  }
 } 
   
 
   else{
     
     if (string.startsWith(`${substring}`) == true ){ 
-      console.log("fds")
+      console.log("fdxsxs")
+      
+      if (string.length >= substring.length ){
   // replace first HTML tag
   text = text.replace(`${wrap}`, '');
   // replace the last tag
-  var matches = text.match(`${wrap}`);
-var lastMatch = matches[matches.length-1];
+      
+      /*
+          var replace = `</${wrap}>`;
+var re = new RegExp(replace,"g");
+  var matches = text.match(re);
+ for (const i in matches){
+   console.log(i)
+ }
+var lastMatch = matches.slice(-1)[0]
   text = text.replace(`${lastMatch}`, '')
   var Wrapped = `${text}` 
-
+  
+  */
+      
+      
+  var matches = text.match(`${wrap}`);
+   
+       
+var lastMatch = matches[matches.length-1];
+  text = text.replace(`${lastMatch}`, '')
+    
+       
+  var Wrapped = `${text}` 
+  }
+  
+  
 } else {
+
+  
   
   if (html_tags==true){
      var Wrapped = `<${wrap}>${text}</${wrap}>` 
@@ -139,15 +173,22 @@ for (var i = 0; i < elements.length; i++) {
         /// Highlighted Text Options 
         
         if (getSelectionText() ==""){
-        
+     
           if (!e.target.getAttribute("insert")){
             // no text was hightlighted - just add the values 
            // todo - set carot in between the value added 
             if (e.target.getAttribute("htmltags") == "false"){
               
-              
+                    if (e.target.getAttribute("wrap") == "false"){
          form.value = form.value +  e.target.getAttribute("value")
-              
+                    } else{
+                      // wrap element
+                       form.value = form.value +  e.target.getAttribute("value") +  e.target.getAttribute("value")
+                      
+                      
+                    }
+                      
+                      
           } else { 
   
              /// insert at last carrot
@@ -166,7 +207,8 @@ for (var i = 0; i < elements.length; i++) {
               
               if (e.target.getAttribute("htmltags") == "false"){
             
-                
+              
+  
                 // Not wrapping with html tags <>
                   form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value"), false));
               }else {
@@ -183,15 +225,14 @@ for (var i = 0; i < elements.length; i++) {
                 
   // replace first HTML tag
   form.value = form.value.replace(e.target.getAttribute("value"), "");
-
+     
 
  
 
 }  else {
               // Add to the start of the value
                form.value = form.value.replace(getSelectionText(), e.target.getAttribute("value") + getSelectionText()); 
-   
-  
+
          }
     }
               
