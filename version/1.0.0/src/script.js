@@ -1,7 +1,9 @@
 
 // ID for text editor 
 let form = document.getElementById('textarea');
-     
+ 
+if (form != null){
+      
 // carot / last type postion 
         var startPosition = 0 
         var currentTextPosition = 0
@@ -164,3 +166,4 @@ for (var i = 0; i < elements.length; i++) {
 
 
       
+}
