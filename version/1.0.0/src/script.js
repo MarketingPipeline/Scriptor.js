@@ -1,30 +1,10 @@
 
-function getCaretPosition() {
-  if (window.getSelection && window.getSelection().getRangeAt) {
-    var range = window.getSelection().getRangeAt(0);
-    var selectedObj = window.getSelection();
-    var rangeCount = 0;
-    var childNodes = selectedObj.anchorNode.parentNode.childNodes;
-    for (var i = 0; i < childNodes.length; i++) {
-      if (childNodes[i] == selectedObj.anchorNode) {
-        break;
-      }
-      if (childNodes[i].outerHTML)
-        rangeCount += childNodes[i].outerHTML.length;
-      else if (childNodes[i].nodeType == 3) {
-        rangeCount += childNodes[i].textContent.length;
-      }
-    }
-    return range.startOffset + rangeCount;
-  }
-  return -1;
-}
 // ID for text editor 
 let form = document.getElementById('textarea');
      
 // carot / last type postion 
         var startPosition = 0 
-        var currePosition = 0
+        var currentTextPosition = 0
 
    form.addEventListener("click", function(){
        
@@ -43,9 +23,7 @@ let form = document.getElementById('textarea');
     
         let input = form.value;
 //form.value = form.value + '\nYour appended stuff';
-        var d = document.getElementById('github')
-        d.innerHTML = `<github-md>${input}</github-md>`;
-       renderMarkdown()
+   
         });
 
 
@@ -55,9 +33,7 @@ let form = document.getElementById('textarea');
        // This prevents the window from reloading
        
         let input = form.value;
-        var d = document.getElementById('github')
-        d.innerHTML = `<github-md>${input}</github-md>`;
-       renderMarkdown()
+   
         });
 
 
@@ -96,17 +72,7 @@ var lastMatch = matches[matches.length-1];
 
   else{
     
-    if (string.startsWith(`${substring}`) == true) {
-     // replace first HTML tag
-  text = text.replace(`<${wrap}>`, '');
-  // replace the last tag
-  var matches = text.match(`</${wrap}>`);
-var lastMatch = matches[matches.length-1];
-  text = text.replace(`${lastMatch}`, '')
-  var Wrapped = `${text}` 
-  }
-
-    
+   
     
   if (html_tags==true){
      var Wrapped = `<${wrap}>${text}</${wrap}>` 
@@ -130,12 +96,7 @@ for (var i = 0; i < elements.length; i++) {
         // Insert Value 
         if (e.target.getAttribute("insert")){
      
-          /// To-do - add at last clicked carrot position
-          var AddText = getCaretPosition(form)
-          console.log(AddText)
-          var startPos = 0;
-        var endPos = AddText;
-          
+       /// insert at last carrot
           form.value = form.value.substring(0, currentTextPosition) + e.target.getAttribute("value") + form.value.substring(currentTextPosition, form.value.length);
 
         }
@@ -143,26 +104,58 @@ for (var i = 0; i < elements.length; i++) {
         
         
         /// Highlighted Text Options 
+        
+        if (getSelectionText() ==""){
+        
+          if (!e.target.getAttribute("insert")){
+            // no text was hightlighted - just add the values 
+           // todo - set carot in between the value added 
+            if (e.target.getAttribute("htmltags") == "false"){
+              
+              
+         form.value = form.value +  e.target.getAttribute("value")
+              
+          } else { 
+          
+                 form.value = form.value +  wrapText("", e.target.getAttribute("value"), true) 
+          
+          }
+            
+        }
+        }
+        
+        
           if (getSelectionText() != ""){
             var Wrap = e.target.getAttribute("wrap")
             if (Wrap =="True"){
               
               if (e.target.getAttribute("htmltags") == "false"){
+            
                 
                 // Not wrapping with html tags <>
                   form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value"), false));
               }else {
-                
+
                             // Wrapping with html tags <>
                 form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value")));  }
                      
                      
             } else{
+                               
               
+              if (getSelectionText().startsWith(e.target.getAttribute("value")) == true ){ 
+                
+  // replace first HTML tag
+  form.value = form.value.replace(e.target.getAttribute("value"), "");
+
+
+
+}  else {
               // Add to the start of the value
                form.value = form.value.replace(getSelectionText(), e.target.getAttribute("value") + getSelectionText());  
-            }
-  
+         }
+    }
+              
           }
         });
 
