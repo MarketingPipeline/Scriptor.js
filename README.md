@@ -34,19 +34,23 @@ Include the script in your HTML document & you're done, you've created a basic c
 ### Options
 
 
-<b>To wrap text with a HTML element etc..</b>
+<b>To wrap text with a HTML tags etc..</b>
 
 
        <button class="test" id="btn" value="h1" wrap="True" type="button">Add a Comment</button>
 
 
-<b>To wrap text with a non-HTML elemenet</b> 
+<b>To wrap text with a non-HTML tags</b> 
 
        <button class="test" id="btn" value="~~ " wrap="True" htmltags="false" type="button">Strikethrough</button>
 
 
-<b>To insert a value before text selection</b>
+<b>To insert a value</b>
 
+
+> ^ this needs a better definition / term. 
+
+Note: if text is **highlighted** value will be added before highlighted text selection, if **NOT** the value will be added to last typing position. 
 
        <button class="test" id="btn" value="@" wrap="false"  type="button">GitHub Mention</button>
 
@@ -60,7 +64,7 @@ Include the script in your HTML document & you're done, you've created a basic c
 
 Note(s):
 - Wrap options etc do not work on insert buttons. 
-- To insert a HTML value such as a image you must **encode** it
+- To insert a HTML value such as a image inside of a <code>value</code> attribute you must **encode** it
 
    
    
