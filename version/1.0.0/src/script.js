@@ -14,6 +14,8 @@
 
 
 // ID for text editor 
+
+
 let form = document.getElementById('textarea');
  
 if (form != null){
@@ -89,13 +91,27 @@ var lastMatch = matches[matches.length-1];
 
   else{
     
-   
-    
+    if (string.startsWith(`${substring}`) == true ){ 
+      console.log("fds")
+  // replace first HTML tag
+  text = text.replace(`${wrap}`, '');
+  // replace the last tag
+  var matches = text.match(`${wrap}`);
+var lastMatch = matches[matches.length-1];
+  text = text.replace(`${lastMatch}`, '')
+  var Wrapped = `${text}` 
+
+} else {
+  
   if (html_tags==true){
      var Wrapped = `<${wrap}>${text}</${wrap}>` 
   } else{
+    console.log(html_tags)
       var Wrapped = `${wrap}${text}${wrap}`
   }
+       }        
+        
+        
 }
   return Wrapped
 }
@@ -188,3 +204,19 @@ for (var i = 0; i < elements.length; i++) {
 
       
 }
+
+     form.addEventListener("input", function (e) {
+       // This prevents the window from reloading
+       
+ 
+         currentTextPosition = form.selectionEnd;
+        
+       
+    
+        let input = form.value;
+//form.value = form.value + '\nYour appended stuff';
+        var d = document.getElementById('github')
+        d.innerHTML = `<github-md>${input}</github-md>`;
+       
+       
+     })
