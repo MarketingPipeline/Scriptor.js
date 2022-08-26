@@ -2,22 +2,24 @@
 A Javascript Library for building custom text editors with ease
 
 
-This is a barebone text editor JS library, meant to create your OWN text editor & customize it to your own needs. 
+This is a barebone text editor JS library, meant to create your OWN text editor & customize it to your own / users needs. 
 
 It includes options for creating text editor buttons / values with ease, wrapping selected text, inserting text at last typed or clicked position & more... 
 
-> Note: You WILL find bugs! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. 
+> Note: You WILL find bugs & lots of room for improvement! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. 
 
 ## Example & Usage
 
 You can view the example's of Scriptor.js in use below! 
 
 
-### Getting Started 
+
+
+<br>
 
 <details>
 
-<summary>Click to read how to use Scriptor.js</summary>
+  <summary>How to use <b>Scriptor.js</b></summary>
 
 <br>
 
