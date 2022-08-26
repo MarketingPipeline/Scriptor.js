@@ -21,6 +21,7 @@
 
 // ID for text editor 
 
+
 let form = document.getElementById('textarea');
  
 if (form != null){
@@ -135,7 +136,6 @@ var lastMatch = matches[matches.length-1];
   
 } else {
 
-  
   
   if (html_tags==true){
      var Wrapped = `<${wrap}>${text}</${wrap}>` 
