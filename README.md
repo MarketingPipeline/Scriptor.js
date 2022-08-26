@@ -8,10 +8,18 @@ It includes options for creating text editor buttons / values with ease, wrappin
 
 > Note: You WILL find bugs! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. 
 
+## Example & Usage
+
+You can view the example's of Scriptor.js in use below! 
 
 
-## Getting Started 
+### Getting Started 
 
+<details>
+
+<summary>Click to read how to use Scriptor.js</summary>
+
+<br>
 
 Create a textarea or another HTML element that can hold a <code>value</code> with the id <code>text-editor</code>
 
@@ -66,5 +74,6 @@ Note(s):
 - Wrap options etc do not work on insert buttons. 
 - To insert a HTML value such as a image inside of a <code>value</code> attribute you must **encode** it
 
-   
+</details>
+
    
