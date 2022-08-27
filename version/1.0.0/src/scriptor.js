@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////////////
+/// SCRIPTOR.JS - CREATED BY GITHUB.COM/MARKETINGPIPELINE
+// A LIBRARY FOR BUILDING YOUR OWN CUSTOMIZABLE TEXT EDTIORS 
+// LICENSED UNDER MIT LICENSE
+// MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 /// TODO's  //////////  -
 
 // carrot position 
@@ -15,6 +26,10 @@
 // add styling options 'text-style' < attribute. 
 
 
+// fix issues for last match of wrapped element
+
+// fix any wrong insert postions etc. 
+
 ////// END OF TO DO //////////
 
 
@@ -22,7 +37,7 @@
 // ID for text editor 
 
 
-let form = document.getElementById('textarea');
+let form = document.getElementById('text-editor');
  
 if (form != null){
       
@@ -38,16 +53,14 @@ if (form != null){
 
          // 
         form.addEventListener("input", function (e) {
-       // This prevents the window from reloading
-       
+
  
          currentTextPosition = form.selectionEnd;
         
        
     
         let input = form.value;
-//form.value = form.value + '\nYour appended stuff';
-   
+
         });
 
 
@@ -154,7 +167,7 @@ var lastMatch = matches[matches.length-1];
 
 /// Get all Text Editor Button Values 
 
-var elements = document.getElementsByClassName("test");
+var elements = document.getElementsByClassName("text-editor-btn");
 
 for (var i = 0; i < elements.length; i++) {
       elements[i].addEventListener("click", function (e) {
@@ -246,18 +259,4 @@ for (var i = 0; i < elements.length; i++) {
       
 }
 
-     form.addEventListener("input", function (e) {
-       // This prevents the window from reloading
-       
- 
-         currentTextPosition = form.selectionEnd;
-        
-       
-    
-        let input = form.value;
-//form.value = form.value + '\nYour appended stuff';
-        var d = document.getElementById('github')
-        d.innerHTML = `<github-md>${input}</github-md>`;
-       
-       
-     })
+  
