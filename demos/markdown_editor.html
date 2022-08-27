@@ -26,3 +26,23 @@
            <button class="test" id="btn" value="~~" wrap="True"  htmltags="false" type="button">StrikeThrough</button>
       
       <div id="github"></div>
+        
+        <!--- THIS IS JUST REQUIRED FOR THIS DEMO TO MIRROR INPUT IN PREVIEW ------>
+<script>
+    
+     form.addEventListener("input", function (e) {
+      
+       
+ 
+         currentTextPosition = form.selectionEnd;
+        
+       
+    
+        let input = form.value;
+        var d = document.getElementById('github')
+        d.innerHTML = `<github-md>${input}</github-md>`;
+       
+       
+     })
+
+        </script>
