@@ -39,7 +39,7 @@ You can view the example's of Scriptor.js in use below!
   
 - **Markdown Editor**  
   [Source](https://github.com/MarketingPipeline/Scriptor.js/blob/main/demos/markdown_editor.html),
-  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/html_editor.html)   
+  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/markdown_editor.html)   
   
 
 
