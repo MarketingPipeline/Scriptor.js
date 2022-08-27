@@ -28,13 +28,14 @@ It includes options for creating text editor buttons / values with ease, wrappin
 
 You can view the example's of Scriptor.js in use below!
 
-- **HTML Editor**
+- **HTML Editor**  
   [Source](https://github.com/MarketingPipeline/Scriptor.js/blob/main/demos/html_editor.html),
-  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/html_editor.html)
-
-- **Markdown Editor**
+  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/html_editor.html) 
+  
+- **Markdown Editor**  
   [Source](https://github.com/MarketingPipeline/Scriptor.js/blob/main/demos/markdown_editor.html),
-  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/markdown_editor.html)
+  [Demo](https://marketingpipeline.github.io/Scriptor.js/demos/markdown_editor.html)   
+  
 
 <br>
 
@@ -57,9 +58,9 @@ Example:
 <button data-scriptor-btn value="blockquote" htmltags="true" wrap="True" type="button">Blockquote</button>
 ```
 
-Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/version/1.0.0/dist/scriptor.min.js) in the bottom of your HTML document & you're done, you've created a basic custom text editor!
+Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/dist/scriptor.min.js) in the bottom of your HTML document & you're done, you've created a basic custom text editor!
 
-    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/version/1.0.0/dist/scriptor.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/dist/scriptor.min.js"></script>
 
 ### Button Options
 
