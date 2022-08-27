@@ -43,6 +43,7 @@ function handleClick(button, form) {
 
 function getNewValue(button, text) {
   const [insert, value, htmltags, wrap] = ['insert', 'value', 'htmltags', 'wrap'].map((key) => button.getAttribute(key) ?? defaultButtonProps[key]);
+  DEBUG && console.table({ insert, value, htmltags, wrap });
 
   // Insert Value
   if (insert) return text.substring(0, currentTextPosition) + value + text.substring(currentTextPosition, text.length);
@@ -58,7 +59,6 @@ function getNewValue(button, text) {
 
   if (getSelectionText() != '') {
     if (wrap) {
-      DEBUG && console.log('wrap', wrap, htmltags);
       if (htmltags) return text.replace(getSelectionText(), wrapText(getSelectionText(), value));
       // Not wrapping with html tags <>
       return text.replace(getSelectionText(), wrapText(getSelectionText(), value, false));
