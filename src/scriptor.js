@@ -42,7 +42,8 @@ function handleClick(button, form) {
 }
 
 function getNewValue(button, text) {
-  const [insert, value, htmltags, wrap] = ['insert', 'value', 'htmltags', 'wrap'].map((key) => button.getAttribute(key) ?? defaultButtonProps[key]);
+  const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key) ?? defaultButtonProps[key]));
+  const value = button.getAttribute('value') ?? defaultButtonProps['value'];
   DEBUG && console.table({ insert, value, htmltags, wrap });
 
   // Insert Value
@@ -97,4 +98,8 @@ function wrapText(text, wrap, html_tags = true) {
   DEBUG && console.log(html_tags);
   if (html_tags == true) return `<${wrap}>${text}</${wrap}>`;
   return `${wrap}${text}${wrap}`;
+}
+
+function checkBool(x) {
+  return x === 'true' || x === true;
 }
