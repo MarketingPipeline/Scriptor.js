@@ -4,259 +4,89 @@
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
  */
 
+const form = document.getElementById('text-editor');
 
+if (!form) return;
+// carot / last type postion
+let startPosition = 0;
+let currentTextPosition = 0;
 
+form.addEventListener('click', () => (currentTextPosition = form.selectionEnd), false);
 
-/// TODO's  //////////  -
+form.addEventListener('input', () => {
+  currentTextPosition = form.selectionEnd;
+});
 
-// carrot position 
+/// Load any default text area content
+window.addEventListener('load', function (e) {
+  // This prevents the window from reloading
 
-////// set caret position inside wrapped element - example <element>CARET HERE</element> 
+  let input = form.value;
+});
 
-////// set after for inserted elements  - example 
-// @Octocat CARET HERE
+/// Get all Text Editor Button Values
 
-/// Ignore Attribute Values In Spellcheck API / Textarea
+const buttons = document.querySelectorAll('[data-scriptor-btn]');
 
+buttons.forEach((button) => button.addEventListener('click', (e) => handleClick(button, form)));
 
-// fix replacement of last match of wrapped element on highlighted text selection
+function handleClick(button, form) {
+  form.value = getNewValue(button, form.value);
+}
 
-// add styling options 'text-style' < attribute. 
+function getNewValue(button, text) {
+  const [insert, value, htmltags, wrap] = ['insert', 'value', 'htmltags', 'wrap'].map((key) => button.getAttribute(key));
 
+  // Insert Value
+  if (insert) return text.substring(0, currentTextPosition) + value + text.substring(currentTextPosition, text.length);
 
-// fix issues for last match of wrapped element
+  /// Highlighted Text Options
+  if (getSelectionText() === '') {
+    // no text was hightlighted - just add the values
+    // todo - set carot in between the value added
+    if (!htmltags) return text.substring(0, currentTextPosition) + wrapText('', value, true) + text.substring(currentTextPosition, text.length);
+    if (!wrap) return text + value;
+    return (form.value = text + value + value);
+  }
 
-// fix any wrong insert postions etc. 
+  if (getSelectionText() != '') {
+    if (wrap) {
+      if (htmltags) return text.replace(getSelectionText(), wrapText(getSelectionText(), value));
+      // Not wrapping with html tags <>
+      return text.replace(getSelectionText(), wrapText(getSelectionText(), value, false));
+    } else {
+      // replace first HTML tag
+      if (getSelectionText().startsWith(value)) return text.replace(value, '');
 
-////// END OF TO DO //////////
+      // Add to the start of the value
+      return form.value.replace(getSelectionText(), value + getSelectionText());
+    }
+  }
+}
 
-
-
-// ID for text editor 
-
-
-let form = document.getElementById('text-editor');
- 
-if (form != null){
-      
-// carot / last type postion 
-        var startPosition = 0 
-        var currentTextPosition = 0
-
-   form.addEventListener("click", function(){
-       
-        currentTextPosition = form.selectionEnd;
-        
-    },false);
-
-         // 
-        form.addEventListener("input", function (e) {
-
- 
-         currentTextPosition = form.selectionEnd;
-        
-       
-    
-        let input = form.value;
-
-        });
-
-
-    /// Load any default text area content
-
-    window.addEventListener("load", function (e) {
-       // This prevents the window from reloading
-       
-        let input = form.value;
-   
-        });
-
-
-
-/// This will return the highlighted text on screen. 
+/// This will return the highlighted text on screen.
 
 function getSelectionText() {
-    var text = "";
-    if (window.getSelection) {
-        text = window.getSelection().toString();
-    } else if (document.selection && document.selection.type != "Control") {
-        text = document.selection.createRange().text;
-    }
-    return text;
+  if (window.getSelection) return window.getSelection().toString();
+  if (document.selection && document.selection.type != 'Control') return document.selection.createRange().text;
+  return '';
 }
-
-
 
 // Wrap Highlighted Text On Button Click
-function wrapText(text, wrap, html_tags=true){
-  
+function wrapText(text, wrap, html_tags = true) {
   const string = text.trim();
-const substring = wrap;
-console.log(substring)
+  DEBUG && console.log(wrap);
   // if Highlighted Text String Already Contains A Wrap At Start & End - Remove It
-if (string.startsWith(`<${substring}>`) == true ){ 
-  console.log(wrap)
-  if (string.length >= substring.length ){
-  // replace first HTML tag
-  text = text.replace(`<${wrap}>`, '');
-  // replace the last tag
-  var matches = text.match(`</${wrap}>`);
-if (matches !=null){
-  var lastMatch = matches[matches.length-1];
-  text = text.replace(`${lastMatch}`, '')
-}
-  var Wrapped = `${text}` 
+  if (string.startsWith(`<${wrap}>`)) {
+    DEBUG && console.log(wrap);
+    return string.replace(RegExp(`^<${wrap}>`), '').replace(RegExp(`</${wrap}>$`), '');
   }
-} 
-  
-
-  else{
-    
-    if (string.startsWith(`${substring}`) == true ){ 
-      console.log("fdxsxs")
-      
-      if (string.length >= substring.length ){
-  // replace first HTML tag
-  text = text.replace(`${wrap}`, '');
-  // replace the last tag
-      
-      /*
-          var replace = `</${wrap}>`;
-var re = new RegExp(replace,"g");
-  var matches = text.match(re);
- for (const i in matches){
-   console.log(i)
- }
-var lastMatch = matches.slice(-1)[0]
-  text = text.replace(`${lastMatch}`, '')
-  var Wrapped = `${text}` 
-  
-  */
-      
-      
-  var matches = text.match(`${wrap}`);
-   
-       
-var lastMatch = matches[matches.length-1];
-  text = text.replace(`${lastMatch}`, '')
-    
-       
-  var Wrapped = `${text}` 
+  if (string.startsWith(`${wrap}`) == true) {
+    DEBUG && console.log('fdxsxs');
+    return string.replace(RegExp(`^${wrap}`), '').replace(RegExp(`${wrap}$`), '');
   }
-  
-  
-} else {
 
-  
-  if (html_tags==true){
-     var Wrapped = `<${wrap}>${text}</${wrap}>` 
-  } else{
-    console.log(html_tags)
-      var Wrapped = `${wrap}${text}${wrap}`
-  }
-       }        
-        
-        
+  DEBUG && console.log(html_tags);
+  if (html_tags == true) return `<${wrap}>${text}</${wrap}>`;
+  return `${wrap}${text}${wrap}`;
 }
-  return Wrapped
-}
-
-
-
-/// Get all Text Editor Button Values 
-
-var elements = document.querySelectorAll('[id=text-editor-btn]');
-
-for (var i = 0; i < elements.length; i++) {
-      elements[i].addEventListener("click", function (e) {
-        
-        
-        // Insert Value 
-        if (e.target.getAttribute("insert")){
-     
-       /// insert at last carrot
-          form.value = form.value.substring(0, currentTextPosition) + e.target.getAttribute("value") + form.value.substring(currentTextPosition, form.value.length);
-
-        }
-        
-        
-        
-        /// Highlighted Text Options 
-        
-        if (getSelectionText() ==""){
-     
-          if (!e.target.getAttribute("insert")){
-            // no text was hightlighted - just add the values 
-           // todo - set carot in between the value added 
-            if (e.target.getAttribute("htmltags") == "false"){
-              
-                    if (e.target.getAttribute("wrap") == "false"){
-         form.value = form.value +  e.target.getAttribute("value")
-                    } else{
-                      // wrap element
-                       form.value = form.value +  e.target.getAttribute("value") +  e.target.getAttribute("value")
-                      
-                      
-                    }
-                      
-                      
-          } else { 
-  
-             /// insert at last carrot
-          form.value = form.value.substring(0, currentTextPosition) +   wrapText("", e.target.getAttribute("value"), true)  + form.value.substring(currentTextPosition, form.value.length);
-
-            
-          }
-            
-        }
-        }
-        
-        
-          if (getSelectionText() != ""){
-            var Wrap = e.target.getAttribute("wrap")
-            if (Wrap =="True"){
-              
-              if (e.target.getAttribute("htmltags") == "false"){
-            
-              
-  
-                // Not wrapping with html tags <>
-                  form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value"), false));
-              }else {
-
-                            // Wrapping with html tags <>
-                form.value = form.value.replace(getSelectionText(), wrapText(getSelectionText(), e.target.getAttribute("value")));  }
-           
-         
-                     
-            } else{
-                               
-              
-              if (getSelectionText().startsWith(e.target.getAttribute("value")) == true ){ 
-                
-  // replace first HTML tag
-  form.value = form.value.replace(e.target.getAttribute("value"), "");
-     
-
- 
-
-}  else {
-              // Add to the start of the value
-               form.value = form.value.replace(getSelectionText(), e.target.getAttribute("value") + getSelectionText()); 
-
-         }
-    }
-              
-          }
-        });
-
-
-}
-
-
-      
-}
-
-  
-
-   

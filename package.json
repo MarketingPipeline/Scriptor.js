@@ -12,7 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "esbuild src/scriptor.js --outfile=dist/scriptor.min.js --bundle --minify"
+    "build": "esbuild src/scriptor.js --outfile=dist/scriptor.min.js --bundle --minify --define:DEBUG='false'",
+    "dev": "esbuild src/scriptor.js --outfile=dist/scriptor.min.js --bundle --watch --define:DEBUG='true'"
   },
   "license": "MIT",
   "repository": "github:MarketingPipeline/Scriptor.js",
