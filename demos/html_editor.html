@@ -1,26 +1,25 @@
 <html><head>
     <title>HTML Text Editor | Scriptor.js </title>
-    <link href="/dist/scriptor.min.js" rel="stylesheet" />
+    <link href="https://unpkg.com/primer@latest/build/build.css" rel="stylesheet">
+    <script src="/dist/scriptor.min.js" defer></script>
   </head>
   <body>
     <div class="container py-4">
-<button class="btn" id="text-editor-btn" value="h1" wrap="True" type="button">H1</button>
+<button class="btn" data-scriptor-btn value="h1" wrap="True" type="button">H1</button>
 
-<button class="btn" id="text-editor-btn" value="h2" wrap="True" type="button">H2</button>
-
-
-<button class="btn" id="text-editor-btn" value="h3" wrap="True" type="button">H3</button>
+<button class="btn" data-scriptor-btn value="h2" wrap="True" type="button">H2</button>
 
 
-<button class="btn" id="text-editor-btn" value="b" wrap="True" type="button">Bold</button>
+<button class="btn" data-scriptor-btn value="h3" wrap="True" type="button">H3</button>
 
-<button class="btn" id="text-editor-btn" value="i" wrap="True" type="button">Italic</button>
 
-<button class="btn" id="text-editor-btn" value="details" wrap="True" type="button">Details</button>
+<button class="btn" data-scriptor-btn value="b" wrap="True" type="button">Bold</button>
 
-<button class="btn" id="text-editor-btn" value="blockquote" wrap="True" type="button">Block Quotes</button>
+<button class="btn" data-scriptor-btn value="i" wrap="True" type="button">Italic</button>
+
+<button class="btn" data-scriptor-btn value="details" wrap="True" type="button">Details</button>
+
+<button class="btn" data-scriptor-btn value="blockquote" wrap="True" type="button">Block Quotes</button>
 
 <textarea id="text-editor" class="mt-3 d-block width-full" ></textarea>
-
-        
-<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/version/1.0.0/dist/scriptor.min.js"></script> 
+    </body>
