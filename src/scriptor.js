@@ -4,6 +4,13 @@
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
  */
 
+const defaultButtonProps = {
+  insert: false,
+  htmltags: true,
+  value: '',
+  wrap: false
+};
+
 const form = document.getElementById('text-editor');
 
 if (!form) return;
@@ -35,7 +42,7 @@ function handleClick(button, form) {
 }
 
 function getNewValue(button, text) {
-  const [insert, value, htmltags, wrap] = ['insert', 'value', 'htmltags', 'wrap'].map((key) => button.getAttribute(key));
+  const [insert, value, htmltags, wrap] = ['insert', 'value', 'htmltags', 'wrap'].map((key) => button.getAttribute(key) ?? defaultButtonProps[key]);
 
   // Insert Value
   if (insert) return text.substring(0, currentTextPosition) + value + text.substring(currentTextPosition, text.length);
@@ -44,13 +51,14 @@ function getNewValue(button, text) {
   if (getSelectionText() === '') {
     // no text was hightlighted - just add the values
     // todo - set carot in between the value added
-    if (!htmltags) return text.substring(0, currentTextPosition) + wrapText('', value, true) + text.substring(currentTextPosition, text.length);
+    if (htmltags) return text.substring(0, currentTextPosition) + wrapText('', value, true) + text.substring(currentTextPosition, text.length);
     if (!wrap) return text + value;
     return (form.value = text + value + value);
   }
 
   if (getSelectionText() != '') {
     if (wrap) {
+      DEBUG && console.log('wrap', wrap, htmltags);
       if (htmltags) return text.replace(getSelectionText(), wrapText(getSelectionText(), value));
       // Not wrapping with html tags <>
       return text.replace(getSelectionText(), wrapText(getSelectionText(), value, false));
