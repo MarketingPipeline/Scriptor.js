@@ -13,7 +13,8 @@ const defaultButtonProps = {
 
 const form = document.getElementById('text-editor');
 
-if (!form) return;
+if (form != null){
+let DEBUG = false;  
 // carot / last type postion
 let startPosition = 0;
 let currentTextPosition = 0;
@@ -42,7 +43,7 @@ function handleClick(button, form) {
 }
 
 function getNewValue(button, text) {
-  const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key) ?? defaultButtonProps[key]));
+  const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key.toLowerCase()) ?? defaultButtonProps[key]));
   const value = button.getAttribute('value') ?? defaultButtonProps['value'];
   DEBUG && console.table({ insert, value, htmltags, wrap });
 
@@ -102,4 +103,5 @@ function wrapText(text, wrap, html_tags = true) {
 
 function checkBool(x) {
   return x === 'true' || x === true;
+}
 }
