@@ -1,27 +1,29 @@
-<html><head>
-    <title>Markdown Text Editor | Scriptor.js Demo </title>
-    <link href="https://unpkg.com/primer@latest/build/build.css" rel="stylesheet">
+<html>
+  <head>
+    <title>Markdown Text Editor | Scriptor.js Demo</title>
+    <link href="https://unpkg.com/primer@latest/build/build.css" rel="stylesheet" />
+    <script src="/dist/scriptor.min.js" defer></script>
   </head>
   <body>
     <div class="container py-4">
-<button class="btn" id="text-editor-btn" value="#"  htmltags="false" wrap="false" type="button">H1</button>
+      <button class="btn" data-scriptor-btn value="#" htmltags="false" wrap="false" type="button">H1</button>
 
-<button class="btn" id="text-editor-btn" value="##" wrap="false" htmltags="false" type="button">H2</button>
+      <button class="btn" data-scriptor-btn value="##" wrap="false" htmltags="false" type="button">H2</button>
 
+      <button class="btn" data-scriptor-btn value="###" htmltags="false" wrap="false" type="button">H3</button>
 
-<button class="btn" id="text-editor-btn" value="###" htmltags="false" wrap="false" type="button">H3</button>
+      <button class="btn" data-scriptor-btn value="**" htmltags="false" wrap="True" type="button">Bold</button>
 
+      <button class="btn" data-scriptor-btn value="i" wrap="True" type="button">Italic</button>
 
-<button class="btn" id="text-editor-btn" value="**" htmltags="false" wrap="True" type="button">Bold</button>
+      <button class="btn" data-scriptor-btn value="details" wrap="True" wrap="True" type="button">Details</button>
 
-<button class="btn" id="text-editor-btn" value="i" wrap="True" type="button">Italic</button>
+      <button class="btn" data-scriptor-btn value="blockquote" wrap="True" type="button">Block Quotes</button>
 
-<button class="btn" id="text-editor-btn" value="details" wrap="True" wrap="True" type="button">Details</button>
+      <textarea id="text-editor" spellcheck="true" class="mt-3 d-block width-full"></textarea>
+      <button class="btn" data-scriptor-btn value="@" wrap="false" htmltags="false" type="button">GitHub Mention</button>
 
-<button class="btn" id="text-editor-btn" value="blockquote" wrap="True"  type="button">Block Quotes</button>
-
-<textarea id="text-editor" spellcheck="true" class="mt-3 d-block width-full" ></textarea>
-           <button class="btn" id="text-editor-btn" value="@" wrap="false"  htmltags="false" type="button">GitHub Mention</button>
-      
-           <button class="btn" id="text-editor-btn" value="~~" wrap="True"  htmltags="false" type="button">StrikeThrough</button>
-<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/version/1.0.0/dist/scriptor.min.js"></script> 
+      <button class="btn" data-scriptor-btn value="~~" wrap="True" htmltags="false" type="button">StrikeThrough</button>
+    </div>
+  </body>
+</html>

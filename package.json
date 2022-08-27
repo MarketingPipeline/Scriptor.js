@@ -1,0 +1,23 @@
+{
+  "name": "scriptorjs",
+  "version": "1.0.0",
+  "description": "Library for building custom text editors with ease",
+  "author": {
+    "name": "MarketingPipeline",
+    "email": "",
+    "url": "https://github.com/marketingpipeline/"
+  },
+  "main": "dist/scriptor.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "esbuild src/scriptor.js --outfile=dist/scriptor.min.js --bundle --minify --define:DEBUG='false'",
+    "dev": "esbuild src/scriptor.js --outfile=dist/scriptor.min.js --bundle --watch --define:DEBUG='true'"
+  },
+  "license": "MIT",
+  "repository": "github:MarketingPipeline/Scriptor.js",
+  "devDependencies": {
+    "esbuild": "^0.15.5"
+  }
+}
