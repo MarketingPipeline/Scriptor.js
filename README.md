@@ -66,9 +66,9 @@ Example:
 ```
 
 
-Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/version/1.0.0/src/script.js) in the bottom of your HTML document & you're done, you've created a basic custom text editor! 
+Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/version/1.0.0/src/scriptor.js) in the bottom of your HTML document & you're done, you've created a basic custom text editor! 
 
-    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/version/1.0.0/src/script.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/version/1.0.0/src/scriptor.js"></script> 
 
 
 
