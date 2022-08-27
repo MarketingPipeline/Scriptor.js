@@ -8,7 +8,6 @@
 
 
 
-
 /// TODO's  //////////  -
 
 // carrot position 
@@ -167,7 +166,7 @@ var lastMatch = matches[matches.length-1];
 
 /// Get all Text Editor Button Values 
 
-var elements = document.getElementsByClassName("text-editor-btn");
+var elements = document.querySelectorAll('[id=text-editor-btn]');
 
 for (var i = 0; i < elements.length; i++) {
       elements[i].addEventListener("click", function (e) {
@@ -260,3 +259,5 @@ for (var i = 0; i < elements.length; i++) {
 }
 
   
+
+   
