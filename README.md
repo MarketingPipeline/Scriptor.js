@@ -5,7 +5,7 @@
 
 
    <p align="center">
-  A Javascript Library for building custom text editors with ease
+  A JavaScript Library for building custom text editors with ease
   
   <br>
   <small> <b><i>Show your support!</i> </b></small>
@@ -22,7 +22,7 @@
 
 # Scriptor.js
 
-This is a barebone text editor JS library, meant to create your OWN text editor & customize it to your own / users needs. 
+This is a bare bone text editor library, meant to create your OWN text editor & customize it to your own / users needs. 
 
 It includes options for creating text editor buttons / values with ease, wrapping selected text, inserting text at last typed or clicked position & more... 
 
@@ -52,16 +52,17 @@ You can view the example's of Scriptor.js in use below!
 
 <br>
 
-Create a textarea or another HTML element that can hold a <code>value</code> with the id <code>text-editor</code>
+Create a text area or another HTML element that can hold a <code>value</code> with the id <code>text-editor</code>
 
-Add some buttons like so to add functionalinatiy to your text editor 
+Add some buttons with the id <code>text-editor-btn</code> to add functionality to your text editor 
 
+Example:
 
 ```html
-  <button class="text-editor-btn" id="btn" value="@" wrap="false"  htmltags="false" type="button">GitHub Mention</button>
-   <button class="text-editor-btn" id="btn" value="&#x3C;img src=&#x22;text-editor-btn&#x22;&#x3E;" insert="true"  type="button" htmltags="false">Insert Image Of A Dog</button>
+<button  id="text-editor-btn" value="@" wrap="false"  htmltags="false" type="button">GitHub Mention</button>
+<button  id="text-editor-btn" value="&#x3C;img src=&#x22;text-editor-btn&#x22;&#x3E;" insert="true"  type="button" htmltags="false">Insert Image Of A Dog</button>
 
-<button class="text-editor-btn" id="btn" value="blockquote" htmltags="true" wrap="True" type="button">Blockquote</button>
+<button  id="text-editor-btn" value="blockquote" htmltags="true" wrap="True" type="button">Blockquote</button>
 ```
 
 
@@ -80,12 +81,12 @@ Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main
 <b>To wrap text with a HTML tags etc..</b>
 
 
-       <button class="text-editor-btn" id="btn" value="h1" wrap="True" type="button">Add a Comment</button>
+       <button id="text-editor-btn" value="h1" wrap="True" type="button">Add a Comment</button>
 
 
 <b>To wrap text with a non-HTML tags</b> 
 
-       <button class="text-editor-btn" id="btn" value="~~ " wrap="True" htmltags="false" type="button">Strikethrough</button>
+       <button id="text-editor-btn" value="~~" wrap="True" htmltags="false" type="button">Strikethrough</button>
 
 
 <b>To insert a value</b>
@@ -95,14 +96,14 @@ Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main
 
 Note: if text is **highlighted** value will be added before highlighted text selection, if **NOT** the value will be added to last typing position. 
 
-       <button class="text-editor-btn" id="btn" value="@" wrap="false"  type="button">GitHub Mention</button>
+       <button id="text-editor-btn" value="@" wrap="false"  type="button">GitHub Mention</button>
 
 
 
 <b>To insert a value at last typing or clicked position</b>:
 
 
-      <button class="text-editor-btn" id="btn" value=":yum: " insert="true" wrap="True" type="button">Add a Comment</button> 
+      <button id="text-editor-btn" value=":yum: " insert="true" wrap="True" type="button">Add a Comment</button> 
 
 
 Note(s):
