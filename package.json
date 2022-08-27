@@ -1,0 +1,11 @@
+{
+  "name": "scriptorjs",
+  "version": "1.0.0",
+  "description": "Library for building custom text editors with ease",
+  "main": "dist/scriptor.min.js",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "repository": "github:MarketingPipeline/Scriptor.js"
+}
