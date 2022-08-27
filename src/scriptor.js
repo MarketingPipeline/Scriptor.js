@@ -1,9 +1,8 @@
-//////////////////////////////////////////////////////////////////////////////////////
-/// SCRIPTOR.JS - CREATED BY GITHUB.COM/MARKETINGPIPELINE
-// A LIBRARY FOR BUILDING YOUR OWN CUSTOMIZABLE TEXT EDTIORS 
-// LICENSED UNDER MIT LICENSE
-// MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
-//////////////////////////////////////////////////////////////////////////////////////
+/**!
+ * @license Scriptor.js - A library for building your own custom text editors
+ * LICENSED UNDER MIT LICENSE
+ * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
+ */
 
 
 
