@@ -58,9 +58,9 @@ Example:
 <button data-scriptor-btn value="blockquote" htmltags="true" wrap="True" type="button">Blockquote</button>
 ```
 
-Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/dist/scriptor.min.js) in the bottom of your HTML document & you're done, you've created a basic custom text editor!
+Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main/dist/scriptor.min.js) in your HTML document & you're done, you've created a basic custom text editor!
 
-    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/dist/scriptor.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Scriptor.js/dist/scriptor.min.js" defer></script>
 
 ### Button Options
 
