@@ -43,7 +43,7 @@ function handleClick(button, form) {
 }
 
 function getNewValue(button, text) {
-  const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key.toLowerCase()) ?? defaultButtonProps[key]));
+  const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key) ?? defaultButtonProps[key]));
   const value = button.getAttribute('value') ?? defaultButtonProps['value'];
   DEBUG && console.table({ insert, value, htmltags, wrap });
 
@@ -101,7 +101,14 @@ function wrapText(text, wrap, html_tags = true) {
   return `${wrap}${text}${wrap}`;
 }
 
+ function AttributeToLowerCase(text){
+   text = text.toString()
+   var x = text.toLowerCase()
+   DEBUG && console.log(`AttributeToLowerCase Was Called`)
+   return x
+ }
+  
 function checkBool(x) {
-  return x === 'true' || x === true;
+  return AttributeToLowerCase(x) === 'true' || x === true;
 }
 }
