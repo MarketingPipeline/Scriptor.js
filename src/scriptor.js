@@ -43,6 +43,10 @@ function handleClick(button, form) {
 }
 
 function getNewValue(button, text) {
+    // allows custom functions to be called on button clicks.
+  if (button.getAttribute("custom-function")) eval(button.getAttribute("custom-function"))
+  
+  // for each value - check if type is true or false. 
   const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key) ?? defaultButtonProps[key]));
   const value = button.getAttribute('value') ?? defaultButtonProps['value'];
   DEBUG && console.table({ insert, value, htmltags, wrap });
