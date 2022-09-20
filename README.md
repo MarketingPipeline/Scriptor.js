@@ -22,7 +22,7 @@ This is a bare bone text editor library, meant to create your OWN text editor & 
 
 It includes options for creating text editor buttons / values with ease, wrapping selected text, inserting text at last typed or clicked position & more...
 
-> Note: You WILL find bugs & lots of room for improvement! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated.
+> Note: You WILL find bugs & lots of room for improvement! Any PR's to help fix bugs you find **ARE MORE THAN** appreciated. You can find also a list of things needed to be fixed inside of the [to-do](.github/TO-DO.md) list
 
 ## Example and usage
 
