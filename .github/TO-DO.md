@@ -11,3 +11,6 @@
 - [ ] Fix Carot Position Points / Make Improvements
 
 - [ ] Add tests for match replacements, inserts etc. 
+
+- [ ] Improve feature to call custom functions 
+   - [ ] Custom functions do NOT add new text to editor (as of right now)
