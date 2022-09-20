@@ -64,32 +64,44 @@ Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main
 
 ### Button Options
 
+<br>
+
 <b>To wrap text with a HTML tags etc..</b>
 
        <button data-scriptor-btn value="h1" wrap="True" type="button">Add a Comment</button>
+
+<br>
 
 <b>To wrap text with a non-HTML tags</b>
 
        <button data-scriptor-btn value="~~" wrap="True" htmltags="false" type="button">Strikethrough</button>
 
+<br>
+
 <b>To call a custom function on button click</b>
 
        <button data-scriptor-btn custom-function="helloWorld()" type="button">Console Log Hello World!</button>
        
+<br>
 
 <b>To insert a value</b>
 
-> ^ this needs a better definition / term.
 
-Note: if text is **highlighted** value will be added before highlighted text selection, if **NOT** the value will be added to last typing position.
+Note: if text is **highlighted** value will be added before highlighted text selection, if **NOT HIGHLIGHTED** the value will be added to end of the text.
 
-       <button data-scriptor-btn value="@" wrap="false"  type="button">GitHub Mention</button>
+          <button data-scriptor-btn value="@" wrap="false" htmltags="false" type="button">GitHub Mention</button>
+
+<br>
 
 <b>To insert a value at last typing or clicked position</b>:
 
-      <button data-scriptor-btn value=":yum: " insert="true" wrap="True" type="button">Add a Comment</button>
+      <button data-scriptor-btn value=":yum:" insert="true"  type="button">Add a Yum Emoji!</button>
 
-Note(s):
+
+<br>
+
+
+#### Note(s):
 
 - Wrap options etc do not work on insert buttons.
 - To insert a HTML value such as a image inside of a <code>value</code> attribute you must **encode** it
