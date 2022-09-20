@@ -72,6 +72,11 @@ Include this [script](https://github.com/MarketingPipeline/Scriptor.js/blob/main
 
        <button data-scriptor-btn value="~~" wrap="True" htmltags="false" type="button">Strikethrough</button>
 
+<b>To call a custom function on button click</b>
+
+       <button data-scriptor-btn custom-function="helloWorld()" type="button">Console Log Hello World!</button>
+       
+
 <b>To insert a value</b>
 
 > ^ this needs a better definition / term.
