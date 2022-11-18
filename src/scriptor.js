@@ -4,6 +4,8 @@
  * MORE INFO CAN BE FOUND AT https://github.com/MarketingPipeline/Scriptor.js/
  */
 
+function ScriptorJS(){
+
 const defaultButtonProps = {
   insert: false,
   htmltags: true,
@@ -14,7 +16,14 @@ const defaultButtonProps = {
 const form = document.getElementById('text-editor');
 
 if (form != null){
-let DEBUG = false;  
+// To enable console log debugging - set to true. 
+let DEBUG=  true
+
+function DEBUGGER(msg) {
+    if (DEBUG === true) {
+        console.log(msg)
+    }
+}
 // carot / last type postion
 let startPosition = 0;
 let currentTextPosition = 0;
@@ -49,7 +58,7 @@ function getNewValue(button, text) {
   // for each value - check if type is true or false. 
   const [insert, htmltags, wrap] = ['insert', 'htmltags', 'wrap'].map((key) => checkBool(button.getAttribute(key) ?? defaultButtonProps[key]));
   const value = button.getAttribute('value') ?? defaultButtonProps['value'];
-  DEBUG && console.table({ insert, value, htmltags, wrap });
+  DEBUGGER({scriptor_js_debugger: { insert, value, htmltags, wrap} });
 
   // Insert Value
   if (insert) return text.substring(0, currentTextPosition) + value + text.substring(currentTextPosition, text.length);
@@ -89,18 +98,18 @@ function getSelectionText() {
 // Wrap Highlighted Text On Button Click
 function wrapText(text, wrap, html_tags = true) {
   const string = text.trim();
-  DEBUG && console.log(wrap);
+  DEBUGGER(`${wrap} was called`);
   // if Highlighted Text String Already Contains A Wrap At Start & End - Remove It
   if (string.startsWith(`<${wrap}>`)) {
-    DEBUG && console.log(wrap);
+    DEBUGGER(`Text started with <${wrap}> replacing "<${wrap}>" at start & </${wrap}> at end` );
     return string.replace(RegExp(`^<${wrap}>`), '').replace(RegExp(`</${wrap}>$`), '');
   }
   if (string.startsWith(`${wrap}`) == true) {
-    DEBUG && console.log('fdxsxs');
+    DEBUGGER(`Text started with ${wrap} replacing "${wrap}" at start & ${wrap} at end` );
     return string.replace(RegExp(`^${wrap}`), '').replace(RegExp(`${wrap}$`), '');
   }
 
-  DEBUG && console.log(html_tags);
+
   if (html_tags == true) return `<${wrap}>${text}</${wrap}>`;
   return `${wrap}${text}${wrap}`;
 }
@@ -108,7 +117,8 @@ function wrapText(text, wrap, html_tags = true) {
  function AttributeToLowerCase(text){
    text = text.toString()
    var x = text.toLowerCase()
-   DEBUG && console.log(`AttributeToLowerCase Was Called`)
+   let DebugMsg = false
+   DEBUGGER(`AttributeToLowerCase Was Called`)
    return x
  }
   
@@ -116,3 +126,7 @@ function checkBool(x) {
   return AttributeToLowerCase(x) === 'true' || x === true;
 }
 }
+  
+}
+
+ScriptorJS()
